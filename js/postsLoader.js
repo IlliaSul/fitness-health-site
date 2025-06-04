@@ -86,6 +86,16 @@ class PostsLoader {
       // Create sample posts for testing
       this.posts = this.createSamplePosts();
       console.log('Using sample posts instead:', this.posts.length);
+
+      // Extract unique categories from sample posts
+      this.posts.forEach(post => {
+        if (post.category) {
+          this.categories.add(post.category);
+        }
+      });
+
+      // Sort sample posts by date (newest first)
+      this.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
     }
   }
 
