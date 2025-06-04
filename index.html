@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Healthy Life Hub</title>
+  <link rel="stylesheet" href="css/style.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="main-content">
+    <section class="intro">
+      <h2>Welcome to your Health Journey</h2>
+      <p>Explore workouts, nutrition advice, mental health support and more.</p>
+    </section>
+
+    <section class="featured-articles">
+      <h2>Latest Articles</h2>
+      <div class="articles">
+        <article>
+          <h3>How to Gain Muscle Without Overtraining</h3>
+          <p>Tips and science-based approach to growing your muscles safely.</p>
+          <a href="blog.html#muscle-gain" class="read-more">Read More →</a>
+        </article>
+        <article>
+          <h3>Healthy Eating Made Simple</h3>
+          <p>Essential principles of balanced nutrition for overall wellbeing.</p>
+          <a href="nutrition.html#balanced-diet" class="read-more">Read More →</a>
+        </article>
+        <article>
+          <h3>Should I Be Worried About My Headache?</h3>
+          <p>We cover the most common causes and when to actually worry.</p>
+          <a href="blog.html#headache" class="read-more">Read More →</a>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/template.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const template = new TemplateLoader();
+      template.init();
+    });
+  </script>
+</body>
+</html>

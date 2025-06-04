@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Posts Loader</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="js/postsLoader.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .blog-post {
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    .post-image img {
+      max-width: 100%;
+      height: auto;
+    }
+    .category-filters {
+      margin-bottom: 20px;
+    }
+    .category-btn {
+      padding: 5px 10px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    .category-btn.active {
+      background-color: #1a73e8;
+      color: white;
+    }
+    .pagination {
+      margin-top: 20px;
+    }
+    .pagination button {
+      padding: 5px 10px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    .pagination button.active {
+      background-color: #1a73e8;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Test Posts Loader</h1>
+  <div id="posts-container"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      console.log('DOM loaded, initializing PostsLoader');
+      
+      // Initialize posts loader
+      const postsLoader = new PostsLoader({
+        containerId: 'posts-container',
+        postsDir: 'data/posts/',
+        filterByCategory: true,
+        postsPerPage: 3
+      });
+      
+      await postsLoader.init();
+    });
+  </script>
+</body>
+</html> 

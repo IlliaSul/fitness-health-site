@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools - Healthy Life Hub</title>
+  <link rel="stylesheet" href="css/style.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .tool-card {
+      background: var(--bg-primary);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px var(--shadow);
+    }
+
+    .tool-card h3 {
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .tool-card p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .tool-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .tool-btn:hover {
+      background: var(--accent-hover);
+    }
+  </style>
+</head>
+<body>
+  <div class="main-content">
+    <section class="intro">
+      <h2>Health & Fitness Tools</h2>
+      <p>Calculate, track, and optimize your health and fitness journey with our specialized tools.</p>
+    </section>
+
+    <section class="tools-grid">
+      <div class="tool-card">
+        <h3>BMI Calculator</h3>
+        <p>Calculate your Body Mass Index and understand what it means for your health.</p>
+        <a href="#" class="tool-btn">Calculate BMI</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>Workout Planner</h3>
+        <p>Create a personalized workout plan based on your goals and available equipment.</p>
+        <a href="#" class="tool-btn">Plan Workout</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>Progress Tracker</h3>
+        <p>Track your fitness progress with measurements, photos, and performance metrics.</p>
+        <a href="#" class="tool-btn">Track Progress</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>Exercise Library</h3>
+        <p>Browse our comprehensive library of exercises with proper form guides.</p>
+        <a href="#" class="tool-btn">View Exercises</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>Heart Rate Zones</h3>
+        <p>Calculate your target heart rate zones for different training intensities.</p>
+        <a href="#" class="tool-btn">Calculate Zones</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>Recovery Timer</h3>
+        <p>Time your rest periods between sets and exercises for optimal recovery.</p>
+        <a href="#" class="tool-btn">Start Timer</a>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/template.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const template = new TemplateLoader();
+      template.init();
+    });
+  </script>
+</body>
+</html> 

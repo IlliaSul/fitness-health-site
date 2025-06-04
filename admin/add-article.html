@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Article - Admin</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    textarea {
+      min-height: 200px;
+      resize: vertical;
+    }
+
+    button {
+      background: #0c351b;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1b5e20;
+    }
+
+    .preview {
+      margin-top: 2rem;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+
+    #tagsContainer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .tag {
+      background: #e9ecef;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tag button {
+      background: none;
+      border: none;
+      color: #666;
+      padding: 0;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Add New Article</h1>
+  
+  <form id="articleForm">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" id="title" required>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select id="category" required>
+        <option value="fitness">Fitness</option>
+        <option value="nutrition">Nutrition</option>
+        <option value="mental-health">Mental Health</option>
+        <option value="hypochondria">Health Anxiety</option>
+        <option value="weight-loss">Weight Loss</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Short Description</label>
+      <textarea id="description" maxlength="200" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="content">Article Content (Markdown)</label>
+      <textarea id="content" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="date">Publication Date</label>
+      <input type="date" id="date" required>
+    </div>
+
+    <div class="form-group">
+      <label for="newTag">Tags</label>
+      <div class="tag-input">
+        <input type="text" id="newTag">
+        <button type="button" onclick="addTag()">Add Tag</button>
+      </div>
+      <div id="tagsContainer"></div>
+    </div>
+
+    <button type="submit">Create Article</button>
+  </form>
+
+  <div class="preview">
+    <h2>Preview</h2>
+    <div id="previewContent"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('articleForm');
+    const tags = new Set();
+
+    function addTag() {
+      const input = document.getElementById('newTag');
+      const tag = input.value.trim().toLowerCase();
+      
+      if (tag && !tags.has(tag)) {
+        tags.add(tag);
+        updateTagsDisplay();
+      }
+      
+      input.value = '';
+    }
+
+    function removeTag(tag) {
+      tags.delete(tag);
+      updateTagsDisplay();
+    }
+
+    function updateTagsDisplay() {
+      const container = document.getElementById('tagsContainer');
+      container.innerHTML = '';
+      
+      tags.forEach(tag => {
+        const tagElement = document.createElement('div');
+        tagElement.className = 'tag';
+        tagElement.innerHTML = `
+          ${tag}
+          <button type="button" onclick="removeTag('${tag}')">&times;</button>
+        `;
+        container.appendChild(tagElement);
+      });
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const title = document.getElementById('title').value;
+      const category = document.getElementById('category').value;
+      const description = document.getElementById('description').value;
+      const content = document.getElementById('content').value;
+      const date = document.getElementById('date').value;
+      
+      const articleData = {
+        id: title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+        title,
+        category,
+        description,
+        date,
+        tags: Array.from(tags),
+        content,
+        path: `/blog/${category}/${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html`
+      };
+
+      // В реальному застосунку тут був би POST запит на бекенд
+      console.log('Article Data:', articleData);
+      
+      // Створюємо превью
+      const preview = document.getElementById('previewContent');
+      preview.innerHTML = `
+        <h1>${title}</h1>
+        <p><em>Published on ${new Date(date).toLocaleDateString()}</em></p>
+        <p>${description}</p>
+        <div class="tags">
+          ${Array.from(tags).map(tag => `<span class="tag">${tag}</span>`).join(' ')}
+        </div>
+        <div class="content">
+          ${content}
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html> 

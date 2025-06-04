@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog - Healthy Life Hub</title>
+  <link rel="stylesheet" href="css/style.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="main-content">
+    <section class="intro">
+      <h2>Blog</h2>
+      <p>Explore our latest articles on health, fitness, nutrition and mental wellbeing.</p>
+    </section>
+
+    <section class="blog-categories">
+      <div class="category">
+        <h3>Fitness</h3>
+        <p>Expert guidance on workouts and training.</p>
+        <a href="blog/fitness/all-articles.html" class="read-more">View Articles →</a>
+      </div>
+
+      <div class="category">
+        <h3>Nutrition</h3>
+        <p>Healthy eating tips and meal planning.</p>
+        <a href="blog/nutrition/all-articles.html" class="read-more">View Articles →</a>
+      </div>
+
+      <div class="category">
+        <h3>Mental Health</h3>
+        <p>Support for emotional wellbeing.</p>
+        <a href="blog/mental-health/all-articles.html" class="read-more">View Articles →</a>
+      </div>
+
+      <div class="category">
+        <h3>Health Anxiety</h3>
+        <p>Managing health-related worries.</p>
+        <a href="blog/hypochondria/all-articles.html" class="read-more">View Articles →</a>
+      </div>
+
+      <div class="category">
+        <h3>Weight Loss</h3>
+        <p>Safe and sustainable approaches.</p>
+        <a href="blog/weight-loss/all-articles.html" class="read-more">View Articles →</a>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/template.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const template = new TemplateLoader();
+      template.init();
+    });
+  </script>
+</body>
+</html> 

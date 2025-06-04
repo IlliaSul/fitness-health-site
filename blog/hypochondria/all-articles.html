@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Health Anxiety Articles - Healthy Life Hub</title>
+  <link rel="stylesheet" href="../../css/style.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .articles-list {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    .article-item {
+      background: var(--bg-primary);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 6px var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .article-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px var(--shadow);
+    }
+
+    .article-item h3 {
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .article-meta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .article-preview {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .read-more {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .read-more:hover {
+      background: var(--accent-hover);
+    }
+
+    .back-link {
+      display: inline-block;
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.3s;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .category-tag {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-content">
+    <a href="../hypochondria.html" class="back-link">← Back to Health Anxiety</a>
+    
+    <section class="intro">
+      <h2>All Health Anxiety Articles</h2>
+      <p>Complete collection of our expert guidance on managing health-related anxiety and concerns.</p>
+    </section>
+
+    <section class="articles-list">
+      <article class="article-item">
+        <span class="category-tag">Health Anxiety</span>
+        <h3>Understanding Health Anxiety</h3>
+        <div class="article-meta">
+          <span>7 min read</span>
+          <span>By Dr. Rachel Green</span>
+        </div>
+        <p class="article-preview">
+          Learn about the causes of health anxiety, its common symptoms, and when to seek professional help for your concerns.
+        </p>
+        <a href="#" class="read-more">Read Article →</a>
+      </article>
+
+      <article class="article-item">
+        <span class="category-tag">Health Anxiety</span>
+        <h3>Coping with Medical Uncertainty</h3>
+        <div class="article-meta">
+          <span>6 min read</span>
+          <span>By Dr. Mark Thompson</span>
+        </div>
+        <p class="article-preview">
+          Discover practical strategies for managing anxiety when dealing with medical uncertainties and waiting for test results.
+        </p>
+        <a href="#" class="read-more">Read Article →</a>
+      </article>
+
+      <article class="article-item">
+        <span class="category-tag">Health Anxiety</span>
+        <h3>Breaking the Cycle of Symptom Checking</h3>
+        <div class="article-meta">
+          <span>8 min read</span>
+          <span>By Dr. Sarah Miller</span>
+        </div>
+        <p class="article-preview">
+          Learn effective techniques to reduce compulsive symptom checking and build a healthier relationship with your body.
+        </p>
+        <a href="#" class="read-more">Read Article →</a>
+      </article>
+    </section>
+  </div>
+
+  <script src="../../js/template.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const template = new TemplateLoader();
+      template.init();
+    });
+  </script>
+</body>
+</html> 

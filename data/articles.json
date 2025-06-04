@@ -1,0 +1,44 @@
+{
+  "articles": [
+    {
+      "id": "morning-stretches",
+      "title": "5 Essential Morning Stretches",
+      "category": "fitness",
+      "description": "Start your day with these energizing stretches.",
+      "date": "2025-04-01",
+      "tags": ["fitness", "stretching", "morning routine"],
+      "path": "/blog/fitness/morning-stretches.html",
+      "thumbnail": "/images/fitness/morning-stretches.jpg"
+    },
+    {
+      "id": "brain-foods",
+      "title": "Superfoods for Brain Health",
+      "category": "nutrition",
+      "description": "Boost your cognitive function naturally.",
+      "date": "2025-04-02",
+      "tags": ["nutrition", "brain health", "superfoods"],
+      "path": "/blog/nutrition/brain-foods.html",
+      "thumbnail": "/images/nutrition/brain-foods.jpg"
+    },
+    {
+      "id": "stress-relief",
+      "title": "Quick Stress Relief Techniques",
+      "category": "mental-health",
+      "description": "Simple methods to calm your mind.",
+      "date": "2025-04-03",
+      "tags": ["mental health", "stress relief", "meditation"],
+      "path": "/blog/mental-health/stress-relief.html",
+      "thumbnail": "/images/mental-health/stress-relief.jpg"
+    },
+    {
+      "id": "smart-snacking",
+      "title": "Smart Snacking Guide",
+      "category": "weight-loss",
+      "description": "Healthy alternatives for your cravings.",
+      "date": "2025-04-04",
+      "tags": ["weight loss", "nutrition", "snacks"],
+      "path": "/blog/weight-loss/smart-snacking.html",
+      "thumbnail": "/images/weight-loss/smart-snacking.jpg"
+    }
+  ]
+} 

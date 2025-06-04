@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Posts Loader (Direct)</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="js/postsLoader.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .blog-post {
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    .post-image img {
+      max-width: 100%;
+      height: auto;
+    }
+    .category-filters {
+      margin-bottom: 20px;
+    }
+    .category-btn {
+      padding: 5px 10px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    .category-btn.active {
+      background-color: #1a73e8;
+      color: white;
+    }
+    .pagination {
+      margin-top: 20px;
+    }
+    .pagination button {
+      padding: 5px 10px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    .pagination button.active {
+      background-color: #1a73e8;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Test Posts Loader (Direct)</h1>
+  <div id="posts-container"></div>
+
+  <script>
+    // Directly load the posts data
+    async function loadPostsDirectly() {
+      try {
+        console.log('Loading posts directly...');
+        const response = await fetch('data/posts/all-posts.json');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const posts = await response.json();
+        console.log('Posts loaded successfully:', posts.length);
+        
+        // Display the posts
+        const container = document.getElementById('posts-container');
+        posts.forEach(post => {
+          const postElement = document.createElement('article');
+          postElement.className = 'blog-post';
+          
+          // Convert Markdown to HTML using marked
+          let contentHtml = '';
+          try {
+            contentHtml = marked.parse(post.content);
+            console.log('Markdown parsed successfully for:', post.title);
+          } catch (error) {
+            console.error('Error parsing Markdown:', error);
+            contentHtml = `<p>${post.content}</p>`;
+          }
+          
+          postElement.innerHTML = `
+            <div class="post-image">
+              <img src="${post.image}" alt="${post.title}">
+            </div>
+            <div class="post-content">
+              <h2>${post.title}</h2>
+              <div class="post-meta">
+                <span class="post-date">${new Date(post.date).toLocaleDateString()}</span>
+                <span class="post-category">${post.category}</span>
+              </div>
+              <div class="post-body">
+                ${contentHtml}
+              </div>
+            </div>
+          `;
+          
+          container.appendChild(postElement);
+        });
+      } catch (error) {
+        console.error('Error loading posts directly:', error);
+        document.getElementById('posts-container').innerHTML = 
+          `<p>Error loading posts: ${error.message}</p>`;
+      }
+    }
+
+    // Load posts when the DOM is ready
+    document.addEventListener('DOMContentLoaded', loadPostsDirectly);
+  </script>
+</body>
+</html> 

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nutrition - Healthy Life Hub</title>
+  <link rel="stylesheet" href="/css/style.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .featured-articles {
+      padding: 2rem 0;
+    }
+    
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .article-card {
+      background: var(--bg-primary);
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px var(--shadow);
+    }
+    
+    .article-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+    
+    .article-meta {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+    
+    .article-preview {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+    
+    .view-all-btn {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    
+    .view-all-btn:hover {
+      background: var(--accent-hover);
+    }
+  </style>
+</head>
+<body>
+  <div class="main-content">
+    <section class="intro">
+      <h2>Nutrition Articles</h2>
+      <p>Expert advice on healthy eating, meal planning, and nutritional science.</p>
+    </section>
+
+    <section class="featured-articles">
+      <div class="articles-grid">
+        <!-- Articles will be added here -->
+      </div>
+      
+      <a href="/blog/nutrition/all-articles.html" class="view-all-btn">View All Articles</a>
+    </section>
+  </div>
+
+  <script src="/js/template.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const template = new TemplateLoader();
+      template.init();
+    });
+  </script>
+</body>
+</html> 
