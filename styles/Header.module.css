@@ -1,0 +1,28 @@
+.header {
+  background: var(--bg-primary);
+  box-shadow: 0 2px 4px var(--shadow);
+  padding: 1rem 2rem;
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.logo {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.navList {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.navList a {
+  text-decoration: none;
+  color: var(--text-primary);
+}
